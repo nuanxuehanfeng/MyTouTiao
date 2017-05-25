@@ -5,7 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -26,6 +28,7 @@ import com.bawei.wangxueshi.mytoutiao.bean.ShuJuBean;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.Target;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.hp.hpl.sparta.Text;
 
 import org.xutils.DbManager;
@@ -47,7 +50,7 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
     Context context;
     List<ShuJuBean.DataBean>  list;
     ImageView   imageViewHuncun;
-   DbManager db;
+     DbManager db;
 
     public TabFragmentListViewAdapter(Context context, List<ShuJuBean.DataBean> list) {
         db=x.getDb(IApplication.getDaoConfig());
@@ -160,15 +163,16 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
     }
 
     @NonNull
-    private View getImageModdle(int position, View convertView) {
+    private View getImageModdle(final int position, View convertView) {
         HolderImageModdle holderImageModdle=null;
-        View view2=null;
+          View  view2=null;
         if(view2==null){
             holderImageModdle=new HolderImageModdle();
             view2=View.inflate(context, R.layout.tabfragment_adapter_image_moddle,null);
             holderImageModdle.item_media_name= (TextView) view2.findViewById(R.id.tabfragment_adapter_image_moddle_tv_source);
             holderImageModdle.item_title= (TextView) view2.findViewById(R.id.tabfragment_adapter_image_moddle_tv_title);
-            holderImageModdle.ivModdle= (ImageView) view2.findViewById(R.id.tabfragment_adapter_image_moddle_iv);
+            holderImageModdle.ivModdle= (PhotoView) view2.findViewById(R.id.tabfragment_adapter_image_moddle_iv);
+            holderImageModdle.item_delete= (TextView) view2.findViewById(R.id.tabfragment_adapter_image_moddle_tv_delete);
             view2.setTag(holderImageModdle);
         }
         else{
@@ -182,6 +186,33 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
         if(!(middle_image==null)){
         loadImage(list.get(position).getMiddle_image().getUrl(),holderImageModdle.ivModdle);
         }
+        //popwindow删除；
+        final HolderImageModdle finalHolderImageModdle = holderImageModdle;
+        holderImageModdle.item_delete.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View v) {
+                View view1 = LayoutInflater.from(context).inflate(R.layout.pop,null,false);
+                PopupWindow popupWindow = new PopupWindow(view1, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                popupWindow.setFocusable(true);
+				popupWindow.showAsDropDown(finalHolderImageModdle.ivModdle, Gravity.LEFT,0,0);
+               // popupWindow.showAtLocation(finalHolderImageModdle.ivModdle, Gravity.LEFT,100,0);
+
+                try {
+                    System.out.println("\"删除了\" = " + "删除了");
+                    db.delete(list.get(position));
+
+                    notifyDataSetChanged();
+                } catch (DbException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+
+
+
         return  view2;
     }
 
@@ -231,6 +262,7 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
     class HolderVideo{
         //新闻标题
         TextView item_title;
+        TextView item_delete;
         //新闻源
         TextView item_media_name;
         //大图片
@@ -239,6 +271,7 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
     }
     //无图片的
     class HolderImageNo{
+        TextView item_delete;
         //新闻标题
         TextView item_title;
         //新闻源
@@ -246,15 +279,17 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
     }
     //中等图片一
     class HolderImageModdle{
+        TextView item_delete;
         //新闻标题
         TextView item_title;
         //新闻源
         TextView item_media_name;
         //中等图片
-        ImageView ivModdle;
+        PhotoView ivModdle;
     }
     //三个图片的
     class HolderImageSmall{
+        TextView item_delete;
         //新闻标题
         TextView item_title;
         //新闻源

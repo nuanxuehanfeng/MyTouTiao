@@ -222,12 +222,14 @@
 
             <TextView
                 android:id="@+id/slipngmeun_left_lixian"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="离线下载" />
 
             <TextView
                 android:id="@+id/slipngmeun_left_yejian"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
@@ -235,6 +237,7 @@
 
             <TextView
                 android:id="@+id/slipngmeun_left_shezhi"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"

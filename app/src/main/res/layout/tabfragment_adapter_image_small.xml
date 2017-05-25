@@ -34,13 +34,41 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <TextView
-        android:textColor="@color/textColor"
+    <!--<TextView-->
+        <!--android:textColor="@color/textColor"-->
+        <!--android:layout_weight="1"-->
+        <!--android:id="@+id/tabfragment_adapter_image_small_tv_source"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="源"-->
+        <!--/>-->
+
+
+    <LinearLayout
         android:layout_weight="1"
-        android:id="@+id/tabfragment_adapter_image_small_tv_source"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="源"
-        />
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/textColor"
+            android:id="@+id/tabfragment_adapter_image_small_tv_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="视频源"/>
+        <TextView
+            android:id="@+id/tabfragment_adapter_image_small_tv_delete"
+            android:layout_weight="0"
+            android:textColor="@color/textColor"
+            android:text="删除"
+            android:textSize="10sp"
+            android:padding="2dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </LinearLayout>
