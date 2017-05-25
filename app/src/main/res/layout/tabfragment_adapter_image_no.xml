@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/backgroundColor"
+    android:layout_height="70dp">
+    <TextView
+        android:textColor="@color/textColor"
+        android:id="@+id/tabfragment_adapter_image_no_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="标题"
+
+    />
+
+    <TextView
+        android:padding="5dp"
+        android:textColor="@color/textColor"
+        android:id="@+id/tabfragment_adapter_image_no_tv_source"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="源"
+        />
+
+</LinearLayout>

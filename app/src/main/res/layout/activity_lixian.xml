@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+
+        <!--离线下载后返回键-->
+        <ImageView
+            android:id="@+id/download_fanhui"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/btn_back_detail_normal" />
+
+
+        <TextView
+            android:id="@+id/lianxi_activity_xiazai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="离线下载"
+            android:textSize="19sp"
+
+            />
+
+        <TextView
+            android:id="@+id/download_xiazaiwenjian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="下载"
+            android:textSize="17sp"
+
+            />
+
+    </LinearLayout>
+    <View
+        android:background="#C0C0C0"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="我的频道"
+        android:textSize="18sp"
+
+        />
+    <View
+        android:background="#C0C0C0"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+<ListView
+    android:id="@+id/download_listview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></ListView>
+
+</LinearLayout>

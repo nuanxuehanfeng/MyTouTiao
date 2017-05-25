@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+     android:layout_width="match_parent"
+    android:background="@color/backgroundColor"
+    android:layout_height="100dp">
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:background="#6F6F6F"
+            android:id="@+id/tabfragment_adapter_video_iv"
+            android:layout_width="800dp"
+            android:layout_height="130dp"
+          />
+        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+           android:alpha="20"
+            android:id="@+id/tabfragment_adapter_video_video"
+            android:layout_width="match_parent"
+            android:layout_height="220dp" />
+    <TextView
+
+        android:textColor="@color/textColor_night"
+        android:alpha="100"
+        android:padding="10dp"
+        android:id="@+id/tabfragment_adapter_video_title"
+        android:text="视频标题"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <TextView
+        android:padding="10dp"
+        android:textColor="@color/textColor"
+        android:id="@+id/tabfragment_adapter_video_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:text="视频源"
+        />
+
+
+</LinearLayout>
