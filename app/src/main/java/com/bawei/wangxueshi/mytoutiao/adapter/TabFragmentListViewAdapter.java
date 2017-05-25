@@ -178,7 +178,7 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
         holderImageModdle.item_media_name.setText(list.get(position).getMedia_name());
         //图片的加载
         ShuJuBean.DataBean.MiddleImageBean middle_image = list.get(position).getMiddle_image();
-           System.out.println("middle_image.getUrl() = " + middle_image.getUrl());
+//           System.out.println("middle_image.getUrl() = " + middle_image.getUrl());
         if(!(middle_image==null)){
         loadImage(list.get(position).getMiddle_image().getUrl(),holderImageModdle.ivModdle);
         }
@@ -203,14 +203,12 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
         }
         holderVideo.item_title.setText(list.get(position).getTitle());
         holderVideo.item_media_name.setText(list.get(position).getMedia_name());
-        //图片的加载
+        //图片的加载aaaaa
 
         //判断下不为空
-        List<ShuJuBean.DataBean.LargeImageListBean> large_image_list = list.get(position).getLarge_image_list();
-
-
-        if(null!=large_image_list){
-            loadImage(list.get(position).getLarge_image_list().get(0).getUrl(),holderVideo.larg_image);}
+//        List<ShuJuBean.DataBean.LargeImageListBean> large_image_list = list.get(position).getLarge_image_list();
+//        if(null!=large_image_list){
+//            loadImage(list.get(position).getLarge_image_list().get(0).getUrl(),holderVideo.larg_image);}
 
      //   holderVideo.video.setUp("http://gslb.miaopai.com/stream/ed5HCfnhovu3tyIQAiv60Q__.mp4", JCVideoPlayer.SCREEN_LAYOUT_LIST, "");
 
@@ -219,9 +217,6 @@ public class TabFragmentListViewAdapter extends BaseAdapter {
         //这个控件不能加载 网络资源
         holderVideo.video.setUp("http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4",JCVideoPlayer.SCREEN_LAYOUT_LIST);
         //加载图片作为视频的显示图片
-
-
-
         return  view1;
     }
 

@@ -222,8 +222,6 @@ public class TabFragment extends BaseFragment {
             private void hunCunRuKu(List<ShuJuBean.DataBean> data) {
                 //先清空数据库，在缓存入库
                 try {
-
-
                     //数据数据库
                     dbManager.delete(ShuJuBean.DataBean.class, WhereBuilder.b("category1", "=", category));
                  //   dbManager.delete(ShuJuBean.DataBean.class);
@@ -235,7 +233,6 @@ public class TabFragment extends BaseFragment {
                     try {
                     bean.setCategory1(category);
                     System.out.println("bean.getCategory1() 保存数据= " + bean.getCategory1());
-
                         dbManager.save(bean);
                     } catch (DbException e) {
                         e.printStackTrace();
